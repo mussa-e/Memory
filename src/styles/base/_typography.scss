@@ -1,0 +1,13 @@
+$font-sizes: (
+    zero: 0px,
+    s: 16px,
+    m: 24px,
+    l: 32px,
+    xl:40px
+);
+
+@each $name, $size in $font-sizes {
+    .text-#{$name} {
+        font-size: $size;
+    }
+}

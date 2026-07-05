@@ -1,0 +1,100 @@
+@use '../base/fonts';
+
+body{
+    background-color: #fff;
+}
+
+main{
+    display: flex;
+}
+
+
+.title{
+
+
+    &__h1{
+        font-family: "Red Rose", serif;
+        font-weight: 700;
+        font-size: 54px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        margin-bottom: 0;
+
+    }
+}
+
+
+.settings-pick{
+    font-family: "Almarai", sans-serif;
+}
+
+
+.themes{
+    margin-top: 36px;
+
+
+    &__title{
+        display: flex;
+    }
+
+
+}
+
+
+.player{
+    margin-top:36px;
+}
+
+
+.board{
+    margin-top: 36px;
+}
+
+
+.code-vibes, 
+.gaming-theme,
+.player__title, 
+.player__blue,
+.player__orange,
+.borad__title, 
+.board__16,
+.board__24, 
+.board__36 {
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.dummy-btn{
+    width: 200px;
+    height:50px;
+    background-color: aqua;
+        position: absolute;
+    bottom: 0;
+
+    &__a{
+        width: 200px;
+        height: 50px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+    }
+}
