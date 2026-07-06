@@ -2,10 +2,20 @@
 
 body{
     background-color: #fff;
+    margin: 0;
 }
 
 main{
     display: flex;
+}
+
+
+.settings-left{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -27,6 +37,7 @@ main{
 
 .settings-pick{
     font-family: "Almarai", sans-serif;
+    width: 263px;
 }
 
 
@@ -57,7 +68,7 @@ main{
 .player__title, 
 .player__blue,
 .player__orange,
-.borad__title, 
+.board__title, 
 .board__16,
 .board__24, 
 .board__36 {
@@ -65,36 +76,63 @@ main{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.dummy-btn{
-    width: 200px;
-    height:50px;
-    background-color: aqua;
-        position: absolute;
-    bottom: 0;
-
-    &__a{
-        width: 200px;
-        height: 50px;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-    }
+.code-vibes, 
+.gaming-theme,
+.player__blue,
+.player__orange,
+.board__16,
+.board__24, 
+.board__36 {
+    margin-left: 36px;
+    margin-bottom: 0px;
+    cursor: pointer;
 }
+
+
+.themes__title,
+.player__title,
+.board__title {
+    gap: 8px;
+}
+
+
+
+.settings-right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+
+.theme{
+    margin-top: 100px;
+}
+
+
+.settings-info{
+    display: flex;
+    font-family: Almarai;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    gap: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
