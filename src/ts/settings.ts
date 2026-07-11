@@ -36,8 +36,28 @@ const updateSettingsInfo = (): void => {
       ? "public/assets/line-skew-picked.svg"
       : "public/assets/line-skew.svg";
   });
+
+  startBtnHover(ready); 
 };
 
+
+function startBtnHover(ready: boolean): void {
+  if (ready) {
+    startBtn.addEventListener("mouseenter", () => {
+      startBtn.src = "public/assets/start-btn-hover.svg";
+      startBtn.style.transform = "scale(1.2)";
+    });
+
+    startBtn.addEventListener("mouseleave", () => {
+      startBtn.src = "public/assets/start-btn.svg";
+      startBtn.style.transform = "scale(1)";
+    });
+
+    startBtn.addEventListener("click", () => {
+      window.location.href = "game.html";
+    });
+  } 
+}
 
 
 

@@ -164,6 +164,7 @@ main{
     &__start-btn{
         width: 120px;
         height: 50px;
+        transition: all 0.3s ease-in-out;
     }
 
     &__skew{
@@ -171,6 +172,7 @@ main{
     }
 
 }
+
 
 
 

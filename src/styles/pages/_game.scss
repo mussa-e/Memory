@@ -1,6 +1,25 @@
+@use '../base/fonts';
+
 @use '../abstract/mixin';
 @use '../abstract/functions' as fct;
 
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    font-family: "Red Rose", serif;
+    color: white;
+    width: 700px;
+    
+
+    &__left{
+        display: flex;
+    }
+
+    &__mid{
+        display: flex;
+    }
+}
 
 .card{
     height: 100px;

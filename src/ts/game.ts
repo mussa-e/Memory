@@ -1,4 +1,5 @@
 import '../styles/style.scss'
+import '../styles/pages/_game.scss'
 
 
 init();
