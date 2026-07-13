@@ -9,17 +9,90 @@
     justify-content: space-between;
     font-family: "Red Rose", serif;
     color: white;
-    width: 700px;
+    width: 1024px;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    align-items: center;
     
 
     &__left{
         display: flex;
+        gap: 16px;
     }
+
+    &__left-blue{
+        display: flex;
+        align-items: center;
+        grid-area: 4px;
+
+        & p{
+            color: #2BB1FF;
+        }
+
+        & img{
+            width: 24px;
+            height: 20px;
+        }
+    }
+
+    &__left-orange{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        & p{
+            color: #F58E39;
+        }
+
+        & img{
+            width: 24px;
+            height: 20px;
+        }
+    }
+
 
     &__mid{
         display: flex;
+        gap: 8px;
+
+        & img{
+            width: 30px;
+        }
+    }
+
+    .header__right {
+        width: 200px;
+        height: 60px;
+        cursor: pointer;
+        transition: filter 0.8s ease;
+
+        img {
+            width: 100%;
+            height: 100%;
+            transition: filter .25s ease;
+
+            &:hover {
+                filter: drop-shadow(0 0 4px #4DD5BC);
+            }
+        }
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .card{
     height: 100px;
