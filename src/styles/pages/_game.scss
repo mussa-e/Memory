@@ -97,14 +97,12 @@
     line-height: 40px;
     text-align: center;
 
-    /* Startposition: oberhalb des Viewports */
     transform: translate(-50%, -400%);
     transition: transform 0.5s ease;
 
     z-index: 1000;
 
     &.active {
-        /* Endposition: mittig */
         transform: translate(-50%, -50%);
     }
 
@@ -113,11 +111,34 @@
         justify-content: center;
         gap: 24px;
         margin-top: 54px;
+        height: 60px;
     }
 
-    &__back-to-game,
+    &__back-to-game{
+        cursor: pointer;
+        background-image: url("public/assets/code-vibes/back-to-game.svg");
+        width: 180px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+        background-image: url("public/assets/code-vibes/back-to-game-hover.svg");
+        }
+    }
+
     &__exit-game {
         cursor: pointer;
+        background-image: url("public/assets/code-vibes/exit-popup.svg");
+        width: 150px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            filter: drop-shadow(0 0 0px #4DD5BC);
+        }
+        
     }
 }
 
@@ -125,7 +146,7 @@
 .overlay-add {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4); /* 40 % Schwarz */
+    background: rgba(0, 0, 0, 0.4);
     z-index: 999;
 }
 
@@ -135,7 +156,14 @@
 
 
 
-
+.field{
+    display: flex;
+    flex-wrap: balance;
+    justify-content: center;
+    gap: 40px;
+    width: 530px;
+    margin-top: 40px;
+}
 
 .card{
     height: 100px;
