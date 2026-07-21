@@ -5,24 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TS-Memory</title>
 </head>
-<body>
+<body id="game-body">
 
     <header class="header">
         <div class="header__left">
             <div class="header__left-blue">
-                <img src="public/assets/code-vibes/label-blue-cv.svg">
-                <p>Blue</p>
+                <img src="public/assets/code-vibes/blue-player-cv.svg">
                 <p></p>
             </div>
             <div class="header__left-orange">
-                <img src="public/assets/code-vibes/label-orange-cv.svg">
-                <p>Orange</p>
+                <img src="public/assets/code-vibes/orange-player-cv.svg">
                 <p></p>
             </div>
         </div>
 
         <div class="header__mid">
-            <p>Current Player:</p><img src="public/assets/code-vibes/label-blue-cv.svg">
+            <p>Current Player:</p><img id="current-player-cv" src="public/assets/code-vibes/label-blue-cv.svg">
         </div>
 
         <div class="header__right">
@@ -159,7 +157,8 @@
     </section>
 
     
-
-    <script type="module" src="./src/ts/game.ts"></script>
+    
+    <script defer type="module" src="./src/ts/game.ts"></script>
+    
 </body>
 </html>

@@ -1,5 +1,13 @@
 import '../styles/style.scss'
 import '../styles/pages/_game.scss'
+import { GameSettings } from "./selected-settings";
+
+
+const saved = localStorage.getItem("gameSettings");
+const settings = JSON.parse(saved!) as GameSettings;
+console.log(settings);
+
+
 
 
 init();
@@ -55,3 +63,5 @@ document.addEventListener("click", (e) => {
     popup.classList.remove("active");
     overlay?.classList.remove("overlay-add");
 });
+
+
