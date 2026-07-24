@@ -4,18 +4,56 @@
 @use '../abstract/functions' as fct;
 
 
-.header{
-    display: flex;
-    justify-content: space-between;
-    font-family: "Red Rose", serif;
-    color: white;
-    width: 1024px;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    align-items: center;
+#game-body{
     
+}
+
+.code-vibes{
+    
+    &__bg{
+        background-color: #2f3130;
+    }
+
+    &__font{
+        font-family: "Red Rose", serif;
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        width: 1024px;
+        font-weight: 400;
+        font-size: 26px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        align-items: center;
+    }
+}
+
+.gaming-theme{
+
+    &__bg{
+        background-color: #294F60;
+    }
+
+    &__font{
+        font-family: "Orbitron", sans-serif;
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        width: 1024px;
+        font-weight: 400;
+        font-size: 26px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        align-items: center;
+        background-color: #FD96C933;
+        opacity: 1;
+        border-radius: 10px;
+        padding: 24px;
+
+    }
+}
+
+.header{
 
     &__left{
         display: flex;
@@ -54,7 +92,7 @@
         }
     }
 
-    .header__right {
+    &__right {
         width: 200px;
         height: 60px;
         cursor: pointer;
@@ -174,7 +212,6 @@
     &__face{
         position: absolute;
         inset: 0;
-        background-color: black;
         backface-visibility: hidden;
 
         &--back{

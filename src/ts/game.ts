@@ -10,6 +10,8 @@ console.log(settings);
 
 
 
+
+
 init();
 
 function init(){
@@ -22,7 +24,70 @@ function init(){
             }
         })
     }
+
+    initTheme(settings.theme);
+    initBoardSize(settings);
 }
+
+
+function initTheme(theme: GameSettings["theme"]){
+    const body = document.body;
+    body.classList=theme + "__bg";
+
+    const ending = theme === "code-vibes" ? "cv" : "gt";
+
+    const currentPlayerImg = document.getElementById("current-player") as HTMLImageElement | null;
+    if(currentPlayerImg){
+        
+        currentPlayerImg.src = `public/assets/${theme}/label-${settings.player}-${ending}.svg`;
+    }
+
+    const exitBtn = document.getElementById("exit-btn") as HTMLButtonElement | null;
+    if(exitBtn){
+        exitBtn.src = `public/assets/${theme}/exit-${ending}.svg`;
+    }
+
+    const headerFont = document.getElementById("header") as HTMLElement | null;
+    if(headerFont){
+        headerFont.classList=theme + "__font";
+    }
+
+    const playerBlueImg = document.getElementById("player-blue") as HTMLImageElement | null;
+    if(playerBlueImg){
+        playerBlueImg.src = `public/assets/${theme}/blue-player-${ending}.svg`;
+    }
+
+    const playerOrangeImg = document.getElementById("player-orange") as HTMLImageElement | null;
+    if(playerOrangeImg){
+        playerOrangeImg.src = `public/assets/${theme}/orange-player-${ending}.svg`;
+    }
+
+
+    
+
+}
+
+
+
+function initBoardSize(settings: GameSettings){
+    const section = document.getElementById("field") as HTMLElement | null;
+
+    if(section){
+        section.innerHTML = "";
+        for(let i=0; i<settings.boardSize; i++){
+            
+            section.innerHTML += `
+                <button class="card">
+                    <div class="card__inner">
+                        <div class="card__face card__face--front"><img id="card-front-${i}" src="public/assets/${settings.theme}-cards/back.svg"></div>
+                        <div class="card__face card__face--back"></div>
+                    </div>
+                </button>
+            `;
+        }
+    }
+}
+
 
 
 
