@@ -27,6 +27,7 @@ function init(){
 
     initTheme(settings.theme);
     initBoardSize(settings);
+    setPopupTheme(settings.theme);
 }
 
 
@@ -85,6 +86,39 @@ function initBoardSize(settings: GameSettings){
                 </button>
             `;
         }
+    }
+}
+
+
+function setPopupTheme(theme: string) {
+    const root = document.documentElement;
+
+    root.style.setProperty(
+        "--back-to-game",
+        `url("public/assets/${theme}/back-to-game.svg")`
+    );
+
+    root.style.setProperty(
+        "--back-to-game-hover",
+        `url("public/assets/${theme}/back-to-game-hover.svg")`
+    );
+
+    root.style.setProperty(
+        "--exit-game",
+        `url("public/assets/${theme}/exit-popup.svg")`
+    );
+
+    root.style.setProperty(
+        "--exit-game-hover",
+        `url("public/assets/${theme}/exit-popup-hover.svg")`
+    );
+
+    if (theme === "code-vibes") {
+        root.style.setProperty("--popup-font", '"Red Rose", serif');
+        root.style.setProperty("--popup-radius", "0px");
+    } else if (theme === "gaming-theme") {
+        root.style.setProperty("--popup-font", '"Orbitron", sans-serif');
+        root.style.setProperty("--popup-radius", "20px");
     }
 }
 

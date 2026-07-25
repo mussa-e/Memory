@@ -121,7 +121,10 @@
     padding: 40px;
     background: #fff;
 
-    font-family: "Red Rose", serif;
+    // font-family: "Red Rose", serif;
+    font-family: var(--popup-font);
+    border-radius: var(--popup-radius);
+    
     font-weight: 700;
     font-size: 32px;
     line-height: 40px;
@@ -146,20 +149,23 @@
 
     &__back-to-game{
         cursor: pointer;
-        background-image: url("public/assets/code-vibes/back-to-game.svg");
+        // background-image: url("public/assets/code-vibes/back-to-game.svg");
+        background-image: var(--back-to-game);
         width: 180px;
         background-size: contain;
         background-repeat: no-repeat;
         transition: all 0.2s ease-in-out;
 
         &:hover {
-        background-image: url("public/assets/code-vibes/back-to-game-hover.svg");
+        // background-image: url("public/assets/code-vibes/back-to-game-hover.svg");
+        background-image: var(--back-to-game-hover);
         }
     }
 
     &__exit-game {
         cursor: pointer;
-        background-image: url("public/assets/code-vibes/exit-popup.svg");
+        // background-image: url("public/assets/code-vibes/exit-popup.svg");
+        background-image: var(--exit-game);
         width: 150px;
         background-size: contain;
         background-repeat: no-repeat;
