@@ -8,6 +8,49 @@ const settings = JSON.parse(saved!) as GameSettings;
 console.log(settings);
 
 
+let codeVibesCards = [
+    "public/assets/code-vibes-cards/atom.svg",
+    "public/assets/code-vibes-cards/angular.svg",
+    "public/assets/code-vibes-cards/bash.svg",
+    "public/assets/code-vibes-cards/bootstrap.svg",
+    "public/assets/code-vibes-cards/css.svg",
+    "public/assets/code-vibes-cards/django.svg",
+    "public/assets/code-vibes-cards/firebase.svg",
+    "public/assets/code-vibes-cards/git.svg",
+    "public/assets/code-vibes-cards/github.svg",
+    "public/assets/code-vibes-cards/html.svg",
+    "public/assets/code-vibes-cards/js.svg",
+    "public/assets/code-vibes-cards/node.svg",
+    "public/assets/code-vibes-cards/python.svg",
+    "public/assets/code-vibes-cards/sass.svg",
+    "public/assets/code-vibes-cards/sql.svg",
+    "public/assets/code-vibes-cards/typescript.svg",
+    "public/assets/code-vibes-cards/vscode.svg",
+    "public/assets/code-vibes-cards/vue.svg"
+];
+
+
+let gamingThemeCards = [
+    "public/assets/gaming-theme-cards/ace.svg",
+    "public/assets/gaming-theme-cards/atari.svg",
+    "public/assets/gaming-theme-cards/banana.svg",
+    "public/assets/gaming-theme-cards/circle.svg",
+    "public/assets/gaming-theme-cards/dice.svg",
+    "public/assets/gaming-theme-cards/fingerprint.svg",
+    "public/assets/gaming-theme-cards/gameboy.svg",
+    "public/assets/gaming-theme-cards/level.svg",
+    "public/assets/gaming-theme-cards/mushroom.svg",
+    "public/assets/gaming-theme-cards/pacman-head.svg",
+    "public/assets/gaming-theme-cards/pacman.svg",
+    "public/assets/gaming-theme-cards/pad.svg",
+    "public/assets/gaming-theme-cards/play.svg",
+    "public/assets/gaming-theme-cards/puzzle.svg",
+    "public/assets/gaming-theme-cards/rectangle.svg",
+    "public/assets/gaming-theme-cards/snake.svg",
+    "public/assets/gaming-theme-cards/starcoin.svg",
+    "public/assets/gaming-theme-cards/triangle.svg"
+];
+
 
 
 
@@ -66,32 +109,73 @@ function initTheme(theme: GameSettings["theme"]){
     if(playerOrangeImg){
         playerOrangeImg.src = `public/assets/${theme}/orange-player-${ending}.svg`;
     }
-
-
-    
-
 }
+
+
+
+
+
 
 
 
 function initBoardSize(settings: GameSettings){
     const section = document.getElementById("field") as HTMLElement | null;
 
+    const Cards = prepareGameCards(settings);
+    
+
     if(section){
         section.innerHTML = "";
-        for(let i=0; i<settings.boardSize; i++){
+        for(let i = 0; i < settings.boardSize; i++){
             
             section.innerHTML += `
                 <button class="card">
                     <div class="card__inner">
-                        <div class="card__face card__face--front"><img id="card-front-${i}" src="public/assets/${settings.theme}-cards/back.svg"></div>
-                        <div class="card__face card__face--back"></div>
+                        <div class="card__face card__face--front">
+                            <img id="card-front-${i}" src="public/assets/${settings.theme}-cards/back.svg">
+                        </div>
+                        <div class="card__face card__face--back">
+                            <img id="card-back-${i}" src="${Cards[i]}">
+                        </div>
                     </div>
                 </button>
             `;
         }
     }
+
+    if (settings.boardSize === 16) {
+        section?.classList.add("field--16");
+    } else if (settings.boardSize === 24) {
+        section?.classList.add("field--24");
+    } else if (settings.boardSize === 36) {
+        section?.classList.add("field--36");
 }
+}
+
+
+
+function prepareGameCards(settings: GameSettings) {
+    const cardPool =
+    settings.theme === "code-vibes"
+        ? [...codeVibesCards]
+        : [...gamingThemeCards];
+
+    for (let i = cardPool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cardPool[i], cardPool[j]] = [cardPool[j], cardPool[i]];
+    }
+
+    const selectedCards = cardPool.slice(0, settings.boardSize / 2);
+    const gameCards = [...selectedCards, ...selectedCards];
+    
+    for (let i = gameCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [gameCards[i], gameCards[j]] = [gameCards[j], gameCards[i]];
+    }
+    return gameCards;
+}
+
+
 
 
 function setPopupTheme(theme: string) {

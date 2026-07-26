@@ -95,6 +95,12 @@
 
         & p{
             color: #2BB1FF;
+            font-weight: 700;
+            font-style: Bold;
+            line-height: 100%;
+            letter-spacing: 0%;
+            text-align: right;
+
         }
 
     }
@@ -106,6 +112,11 @@
 
         & p{
             color: #F58E39;
+            font-weight: 700;
+            font-style: Bold;
+            line-height: 100%;
+            letter-spacing: 0%;
+            text-align: right;
         }
 
     }
@@ -230,18 +241,28 @@
 
 
 .field{
-    display: flex;
-    flex-wrap: balance;
+    display: grid;
     justify-content: center;
     gap: 40px;
     margin-top: 40px;
 }
+
+.field--16,
+.field--24 {
+    grid-template-columns: repeat(4, auto);
+}
+
+.field--36 {
+    grid-template-columns: repeat(6, auto);
+}
+
 
 .card{
     height: 100px;
     aspect-ratio: 1 / 1;
     background-color: transparent;
     border: none;
+    cursor: pointer;
 
     &__inner{
         position: relative;
@@ -258,7 +279,6 @@
 
         &--back{
             transform: rotateY(180deg);
-            background-color: red;
         }
     }
 
