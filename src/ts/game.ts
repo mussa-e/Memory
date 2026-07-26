@@ -28,6 +28,8 @@ function init(){
     initTheme(settings.theme);
     initBoardSize(settings);
     setPopupTheme(settings.theme);
+    setCurrentPlayerImgBG(settings.theme, settings.player);
+    setheaderLeftBG(settings.theme);
 }
 
 
@@ -52,6 +54,8 @@ function initTheme(theme: GameSettings["theme"]){
     if(headerFont){
         headerFont.classList=theme + "__font";
     }
+
+    
 
     const playerBlueImg = document.getElementById("player-blue") as HTMLImageElement | null;
     if(playerBlueImg){
@@ -123,6 +127,41 @@ function setPopupTheme(theme: string) {
 }
 
 
+function setCurrentPlayerImgBG(theme: string, player: string) {
+    const background = document.getElementById("current-player-wrapper") as HTMLElement | null;
+
+    if (theme === "code-vibes") {
+        return;
+    }
+
+    background!.style.backgroundColor =
+        player === "blue" ? "#1FAAFC" : "#F58E39";
+    
+}
+
+
+function setheaderLeftBG(theme: string) {
+    const headerLeft = document.getElementById("header-left") as HTMLElement | null;
+
+    if(headerLeft && theme === "gaming-theme"){
+        headerLeft.classList.add("gaming-theme-left-BG");
+    } else if(headerLeft && theme === "code-vibes"){
+        headerLeft.classList.remove("gaming-theme-left-BG");
+    }
+
+    if(headerLeft && theme === "code-vibes"){
+        headerLeft.classList.add("code-vibes-left-BG");
+    } else if(headerLeft && theme === "gaming-theme"){
+        headerLeft.classList.remove("code-vibes-left-BG");
+    }
+
+}
+
+
+
+
+
+        
 
 
 const exitBtn = document.getElementById("exit-btn") as HTMLButtonElement | null;

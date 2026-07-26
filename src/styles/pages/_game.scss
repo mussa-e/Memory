@@ -5,7 +5,31 @@
 
 
 #game-body{
-    
+    justify-content: unset;
+}
+
+.gaming-theme-left-BG{
+    width: 180px;
+    height: 54px;
+    gap: 40px;
+    opacity: 1;
+    border-radius: 10px;
+    padding: 0 16px;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    display: flex;
+    gap: 16px;
+}
+
+.code-vibes-left-BG{
+    width: 290px;
+    height: 60px;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: #86E9D633;
+
 }
 
 .code-vibes{
@@ -25,6 +49,7 @@
         line-height: 100%;
         letter-spacing: 0%;
         align-items: center;
+        margin-top: 24px;
     }
 }
 
@@ -49,15 +74,18 @@
         opacity: 1;
         border-radius: 10px;
         padding: 24px;
+        margin-top: 24px;
 
     }
 }
 
 .header{
 
+
     &__left{
         display: flex;
         gap: 16px;
+        
     }
 
     &__left-blue{
@@ -86,11 +114,20 @@
     &__mid{
         display: flex;
         gap: 8px;
-
-        & img{
-            width: 30px;
-        }
+        align-items: center;    
     }
+
+    &__mid-current-player{
+            width: 24px;
+            height: 30px;
+            gap: 10px;
+            opacity: 1;
+            border-radius: 3px;
+            padding: 4px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
     &__right {
         width: 200px;
@@ -197,7 +234,6 @@
     flex-wrap: balance;
     justify-content: center;
     gap: 40px;
-    width: 530px;
     margin-top: 40px;
 }
 

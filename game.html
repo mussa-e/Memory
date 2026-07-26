@@ -8,19 +8,22 @@
 <body id="game-body">
 
     <header id="header" class="header">
-        <div class="header__left">
+        <div id="header-left" class="header__left">
             <div class="header__left-blue">
                 <img id="player-blue" src="">
-                <p></p>
+                <p>0</p>
             </div>
             <div class="header__left-orange">
                 <img id="player-orange" src="">
-                <p></p>
+                <p>0</p>
             </div>
         </div>
 
         <div class="header__mid">
-            <p>Current Player:</p><img id="current-player" src="">
+            <p>Current Player:</p>
+            <div id="current-player-wrapper" class="header__mid-current-player">
+                <img id="current-player" src="">
+            </div>
         </div>
 
         <div class="header__right">
