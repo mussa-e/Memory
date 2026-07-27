@@ -1,56 +1,13 @@
 import '../styles/style.scss'
 import '../styles/pages/_game.scss'
 import { GameSettings } from "./selected-settings";
+import { cvCardsFilePath, gtCardsFilePath } from "./cards";
+import { buttonCardHTML } from './template';
 
 
 const saved = localStorage.getItem("gameSettings");
 const settings = JSON.parse(saved!) as GameSettings;
 console.log(settings);
-
-
-let codeVibesCards = [
-    "public/assets/code-vibes-cards/atom.svg",
-    "public/assets/code-vibes-cards/angular.svg",
-    "public/assets/code-vibes-cards/bash.svg",
-    "public/assets/code-vibes-cards/bootstrap.svg",
-    "public/assets/code-vibes-cards/css.svg",
-    "public/assets/code-vibes-cards/django.svg",
-    "public/assets/code-vibes-cards/firebase.svg",
-    "public/assets/code-vibes-cards/git.svg",
-    "public/assets/code-vibes-cards/github.svg",
-    "public/assets/code-vibes-cards/html.svg",
-    "public/assets/code-vibes-cards/js.svg",
-    "public/assets/code-vibes-cards/node.svg",
-    "public/assets/code-vibes-cards/python.svg",
-    "public/assets/code-vibes-cards/sass.svg",
-    "public/assets/code-vibes-cards/sql.svg",
-    "public/assets/code-vibes-cards/typescript.svg",
-    "public/assets/code-vibes-cards/vscode.svg",
-    "public/assets/code-vibes-cards/vue.svg"
-];
-
-
-let gamingThemeCards = [
-    "public/assets/gaming-theme-cards/ace.svg",
-    "public/assets/gaming-theme-cards/atari.svg",
-    "public/assets/gaming-theme-cards/banana.svg",
-    "public/assets/gaming-theme-cards/circle.svg",
-    "public/assets/gaming-theme-cards/dice.svg",
-    "public/assets/gaming-theme-cards/fingerprint.svg",
-    "public/assets/gaming-theme-cards/gameboy.svg",
-    "public/assets/gaming-theme-cards/level.svg",
-    "public/assets/gaming-theme-cards/mushroom.svg",
-    "public/assets/gaming-theme-cards/pacman-head.svg",
-    "public/assets/gaming-theme-cards/pacman.svg",
-    "public/assets/gaming-theme-cards/pad.svg",
-    "public/assets/gaming-theme-cards/play.svg",
-    "public/assets/gaming-theme-cards/puzzle.svg",
-    "public/assets/gaming-theme-cards/rectangle.svg",
-    "public/assets/gaming-theme-cards/snake.svg",
-    "public/assets/gaming-theme-cards/starcoin.svg",
-    "public/assets/gaming-theme-cards/triangle.svg"
-];
-
 
 
 
@@ -120,36 +77,23 @@ function initTheme(theme: GameSettings["theme"]){
 
 function initBoardSize(settings: GameSettings){
     const section = document.getElementById("field") as HTMLElement | null;
-
     const Cards = prepareGameCards(settings);
     
-
     if(section){
         section.innerHTML = "";
         for(let i = 0; i < settings.boardSize; i++){
             
-            section.innerHTML += `
-                <button class="card">
-                    <div class="card__inner">
-                        <div class="card__face card__face--front">
-                            <img id="card-front-${i}" src="public/assets/${settings.theme}-cards/back.svg">
-                        </div>
-                        <div class="card__face card__face--back">
-                            <img id="card-back-${i}" src="${Cards[i]}">
-                        </div>
-                    </div>
-                </button>
-            `;
+            section.innerHTML += buttonCardHTML(settings, i, Cards[i]);
         }
     }
 
     if (settings.boardSize === 16) {
-        section?.classList.add("field--16");
-    } else if (settings.boardSize === 24) {
-        section?.classList.add("field--24");
-    } else if (settings.boardSize === 36) {
-        section?.classList.add("field--36");
-}
+            section?.classList.add("field--16");
+        } else if (settings.boardSize === 24) {
+            section?.classList.add("field--24");
+        } else if (settings.boardSize === 36) {
+            section?.classList.add("field--36");
+    }
 }
 
 
@@ -157,8 +101,8 @@ function initBoardSize(settings: GameSettings){
 function prepareGameCards(settings: GameSettings) {
     const cardPool =
     settings.theme === "code-vibes"
-        ? [...codeVibesCards]
-        : [...gamingThemeCards];
+        ? [...cvCardsFilePath]
+        : [...gtCardsFilePath];
 
     for (let i = cardPool.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
