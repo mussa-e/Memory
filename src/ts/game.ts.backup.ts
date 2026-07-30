@@ -9,10 +9,7 @@ const saved = localStorage.getItem("gameSettings");
 const settings = JSON.parse(saved!) as GameSettings;
 console.log(settings);
 
-let currentPlayer: "blue" | "orange" = settings.player;
-let firstCard: HTMLButtonElement | null = null;
-let secondCard: HTMLButtonElement | null = null;
-let lockBoard = false;
+
 
 
 
@@ -24,7 +21,7 @@ function init(){
         fieldRef.addEventListener("click", e=> {
             const card = (e.target as HTMLElement).closest(".card") as HTMLButtonElement
             if(card){
-                flipCard(card);
+                card.classList.toggle("is-flipped")
             }
 
             
@@ -38,101 +35,9 @@ function init(){
     setPopupTheme(settings.theme);
     setCurrentPlayerImgBG(settings.theme, settings.player);
     setheaderLeftBG(settings.theme);
-
-    updateCurrentPlayer();
-}
-
-function flipCard(card: HTMLButtonElement) {
-
-    if (lockBoard) return;
-
-    if (card === firstCard) return;
-
-    card.classList.add("is-flipped");
-
-    if (!firstCard) {
-        firstCard = card;
-        return;
-    }
-
-    secondCard = card;
-    lockBoard = true;
-
-    checkForMatch();
-}
-
-function checkForMatch() {
-
-    const firstValue = firstCard?.dataset.card;
-    const secondValue = secondCard?.dataset.card;
-
-    if (firstValue === secondValue) {
-        matchMark();
-        disableCards();
-    } else {
-        unflipCards();
-    }
-
 }
 
 
-function matchMark() {
-    const ending = settings.theme === "code-vibes" ? "cv" : "gt";
-
-    const firstInner = firstCard?.firstElementChild as HTMLElement | null;
-    const secondInner = secondCard?.firstElementChild as HTMLElement | null;
-
-    firstInner?.classList.add(`match-marked-${ending}`);
-    secondInner?.classList.add(`match-marked-${ending}`);
-}
-
-
-function disableCards() {
-
-    firstCard = null;
-    secondCard = null;
-    lockBoard = false;
-
-}
-
-function unflipCards() {
-
-    setTimeout(() => {
-
-        firstCard?.classList.remove("is-flipped");
-        secondCard?.classList.remove("is-flipped");
-
-        switchPlayer();
-
-        firstCard = null;
-        secondCard = null;
-        lockBoard = false;
-
-    }, 1000);
-
-}
-
-function switchPlayer() {
-
-    currentPlayer = currentPlayer === "blue" ? "orange" : "blue";
-
-    updateCurrentPlayer();
-}
-
-function updateCurrentPlayer() {
-
-    const ending = settings.theme === "code-vibes"
-        ? "cv"
-        : "gt";
-
-    const currentPlayerImg = document.getElementById("current-player") as HTMLImageElement;
-
-    currentPlayerImg.src =
-        `public/assets/${settings.theme}/label-${currentPlayer}-${ending}.svg`;
-
-    setCurrentPlayerImgBG(settings.theme, currentPlayer);
-
-}
 
 
 

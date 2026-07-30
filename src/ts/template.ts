@@ -6,7 +6,7 @@ export function buttonCardHTML(
     card: string
 ) {
     return `
-        <button class="card">
+        <button class="card" data-card="${card}">
             <div class="card__inner">
                 <div class="card__face card__face--front">
                     <img

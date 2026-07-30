@@ -8,6 +8,18 @@
     justify-content: unset;
 }
 
+.match-marked-cv{
+    border: 5px solid #4DD5BC !important;
+    width: 120px !important;
+    height: 120px !important;
+}
+
+.match-marked-gt{
+    border: 3px solid #ED1B76 !important;
+    width: 120px !important;
+    height: 120px !important;
+}
+
 .gaming-theme-left-BG{
     width: 180px;
     height: 54px;
@@ -243,8 +255,9 @@
 .field{
     display: grid;
     justify-content: center;
-    gap: 40px;
+    // gap: 40px;
     margin-top: 40px;
+    height: 100%;
 }
 
 .field--16,
@@ -258,7 +271,7 @@
 
 
 .card{
-    height: 100px;
+    // height: 100px;
     aspect-ratio: 1 / 1;
     background-color: transparent;
     border: none;
@@ -266,8 +279,10 @@
 
     &__inner{
         position: relative;
-        width: 100%;
-        height: 100%;
+        // width: 100%;
+        // height: 100%;
+        width: 120px;
+        height: 120px;
         transform-style: preserve-3d;
         transition: all 300ms ease-in-out;
     }
