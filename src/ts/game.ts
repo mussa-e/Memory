@@ -12,7 +12,11 @@ console.log(settings);
 let currentPlayer: "blue" | "orange" = settings.player;
 let firstCard: HTMLButtonElement | null = null;
 let secondCard: HTMLButtonElement | null = null;
-let lockBoard = false;
+let lockBoard: boolean = false;
+
+let matchedPairsOrange: number = 0;
+let matchedPairsBlue: number = 0;
+
 
 
 
@@ -27,8 +31,7 @@ function init(){
                 flipCard(card);
             }
 
-            
-            console.log("card clicked");
+            checkIfGamingThemeForBG(settings.theme);
             
         })
     }
@@ -40,7 +43,19 @@ function init(){
     setheaderLeftBG(settings.theme);
 
     updateCurrentPlayer();
+    
 }
+
+
+function checkIfGamingThemeForBG(theme: GameSettings["theme"]) {
+
+    let contRef = document.querySelectorAll(".card__face--back");
+    console.log("contRef:", contRef);
+    if (theme === "gaming-theme") {
+        contRef.forEach(card => card.classList.add("gt-card-inner"));
+    }
+}
+
 
 function flipCard(card: HTMLButtonElement) {
 
@@ -61,6 +76,7 @@ function flipCard(card: HTMLButtonElement) {
     checkForMatch();
 }
 
+
 function checkForMatch() {
 
     const firstValue = firstCard?.dataset.card;
@@ -69,11 +85,15 @@ function checkForMatch() {
     if (firstValue === secondValue) {
         matchMark();
         disableCards();
+        updateScore();
     } else {
         unflipCards();
     }
 
 }
+
+
+
 
 
 function matchMark() {
@@ -94,6 +114,7 @@ function disableCards() {
     lockBoard = false;
 
 }
+
 
 function unflipCards() {
 
@@ -119,6 +140,7 @@ function switchPlayer() {
     updateCurrentPlayer();
 }
 
+
 function updateCurrentPlayer() {
 
     const ending = settings.theme === "code-vibes"
@@ -133,8 +155,6 @@ function updateCurrentPlayer() {
     setCurrentPlayerImgBG(settings.theme, currentPlayer);
 
 }
-
-
 
 
 function initTheme(theme: GameSettings["theme"]){
@@ -173,7 +193,22 @@ function initTheme(theme: GameSettings["theme"]){
 }
 
 
+function updateScore() {
+    const scoreBlue = document.getElementById("score-blue") as HTMLElement | null;
+    const scoreOrange = document.getElementById("score-orange") as HTMLElement | null;
 
+    if (currentPlayer === "blue") {
+        matchedPairsBlue++;
+        if (scoreBlue) {
+            scoreBlue.textContent = matchedPairsBlue.toString();
+        }
+    } else {
+        matchedPairsOrange++;
+        if (scoreOrange) {
+            scoreOrange.textContent = matchedPairsOrange.toString();
+        }
+    }
+}
 
 
 

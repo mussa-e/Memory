@@ -8,7 +8,7 @@
     justify-content: unset;
 }
 
-/////diese klasse muss irgendwie .card__inner oder .card__face--back bei gt getoggelt werden
+
 .gt-card-inner{
     display: flex;
     justify-content: center;
@@ -267,7 +267,6 @@
 .field{
     display: grid;
     justify-content: center;
-    // gap: 40px;
     margin-top: 40px;
     height: 100%;
 }
