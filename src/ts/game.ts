@@ -50,7 +50,6 @@ function init(){
 function checkIfGamingThemeForBG(theme: GameSettings["theme"]) {
 
     let contRef = document.querySelectorAll(".card__face--back");
-    console.log("contRef:", contRef);
     if (theme === "gaming-theme") {
         contRef.forEach(card => card.classList.add("gt-card-inner"));
     }
@@ -157,6 +156,7 @@ function updateCurrentPlayer() {
 
     setCurrentPlayerImgBG(settings.theme, currentPlayer);
 
+    
 }
 
 
@@ -210,6 +210,30 @@ function updateScore() {
         if (scoreOrange) {
             scoreOrange.textContent = matchedPairsOrange.toString();
         }
+    }
+
+    checkEnding();
+}
+
+
+function checkEnding(): void {
+    const totalPairs = matchedPairsBlue + matchedPairsOrange;
+    const requiredPairs = settings.boardSize / 2;
+
+    if (totalPairs === requiredPairs) {
+        checkFinalRedirect();
+    }
+}
+
+
+function checkFinalRedirect(): void {
+    console.log("final redirect");
+    if(settings.theme==="code-vibes"){
+        window.location.href = "endscreen-cv.html";
+    }
+
+    if(settings.theme==="gaming-theme"){
+        window.location.href = "endscreen-gt.html";
     }
 }
 

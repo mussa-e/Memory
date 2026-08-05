@@ -1,0 +1,63 @@
+@use '../base/fonts';
+
+@use '../abstract/mixin';
+@use '../abstract/functions' as fct;
+
+
+
+body{
+    background-color: #303131;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.game-over{
+    width: 990px;
+    height: 125px;
+    opacity: 1;
+
+}
+
+
+.final-score{
+    font-family: "Red Rose", serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #FFFFFF;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin-top: 120px;
+
+}
+
+
+.score{
+    width: 320px;
+    gap: 32px;
+    opacity: 1;
+    padding: 18px 20px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: #86E9D633;
+    margin-top: 32px;
+
+
+    &__blue{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__orange{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
