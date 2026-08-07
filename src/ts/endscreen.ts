@@ -1,13 +1,44 @@
 import '../styles/style.scss'
 import '../styles/pages/_game.scss'
 import '../styles/pages/_endscreen-cv.scss'
+import '../styles/pages/_endscreen-gt.scss'
 import { GameSettings } from "./selected-settings";
-import { cvCardsFilePath, gtCardsFilePath } from "./cards";
-import { buttonCardHTML } from './template';
+
+
+const score = JSON.parse(localStorage.getItem("score")!);
+const matchedPairsBlue = score.blue;
+const matchedPairsOrange = score.orange;
 
 
 initEnd();
 
 function initEnd(settings: GameSettings, matchedPairsBlue: number, matchedPairsOrange: number) {
     console.log("initEnd");
+
+    endscreenScoreUpdate();
+}
+
+
+function endscreenScoreUpdate(): void {
+
+    let blueScoreCV = document.getElementById("blue-score-cv");
+    let orangeScoreCV = document.getElementById("orange-score-cv");
+
+    let blueScoreGT = document.getElementById("blue-score-gt");
+    let orangeScoreGT = document.getElementById("orange-score-gt");
+    
+    if (blueScoreCV) {
+        blueScoreCV.innerHTML = matchedPairsBlue.toString();
+    }
+    if (orangeScoreCV) {
+        orangeScoreCV.innerHTML = matchedPairsOrange.toString();
+    }
+
+    if (blueScoreGT) {
+        blueScoreGT.innerHTML = matchedPairsBlue.toString();
+    }
+    if (orangeScoreGT) {
+        orangeScoreGT.innerHTML = matchedPairsOrange.toString();
+    }
+
 }

@@ -14,8 +14,8 @@ let firstCard: HTMLButtonElement | null = null;
 let secondCard: HTMLButtonElement | null = null;
 let lockBoard: boolean = false;
 
-let matchedPairsOrange: number = 0;
-let matchedPairsBlue: number = 0;
+export let matchedPairsOrange: number = 0;
+export let matchedPairsBlue: number = 0;
 
 
 
@@ -213,6 +213,7 @@ function updateScore() {
     }
 
     checkEnding();
+    
 }
 
 
@@ -223,19 +224,37 @@ function checkEnding(): void {
     if (totalPairs === requiredPairs) {
         checkFinalRedirect();
     }
+
+    
 }
 
 
 function checkFinalRedirect(): void {
-    console.log("final redirect");
+    console.log("checkFinalRedirect");
+
+    localStorage.setItem(
+    "score",
+    JSON.stringify({
+        blue: matchedPairsBlue,
+        orange: matchedPairsOrange
+    })
+);
+
     if(settings.theme==="code-vibes"){
-        window.location.href = "endscreen-cv.html";
+        setTimeout(() => {
+            window.location.href = "endscreen-cv.html";
+        }, 2000);
     }
 
     if(settings.theme==="gaming-theme"){
-        window.location.href = "endscreen-gt.html";
+        setTimeout(() => {
+            window.location.href = "endscreen-gt.html";
+        }, 2000);
     }
 }
+
+
+
 
 
 

@@ -2,3 +2,91 @@
 
 @use '../abstract/mixin';
 @use '../abstract/functions' as fct;
+
+
+body{
+    background-color: #294f60;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.game-over-gt{
+    width: 990px;
+    height: 125px;
+    font-family: Orbitron;
+    font-weight: 900;
+    font-size: 124px;
+    line-height: 100%;
+    letter-spacing: 7%;
+    color: #ED1B76;
+
+
+}
+
+
+.final-score-gt{
+    font-family: Orbitron;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: 7%;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 120px;
+
+}
+
+
+.score-gt{
+    gap: 32px;
+    padding: 18px 16px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: #FFFFFF;
+    margin-top: 32px;
+    border-radius: 10px;
+    height: 30px;
+    width: 200px;
+
+
+    &__blue{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        height: 100%;
+
+        & p{
+            font-family: "Orbitron", serif;
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            text-align: center;
+            color: #097FC5;
+        }
+    }
+
+    &__orange{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        height: 100%;
+
+        & p{
+            font-family: "Orbitron", serif;
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            text-align: center;
+            color: #EA6900;
+        }
+    }
+}

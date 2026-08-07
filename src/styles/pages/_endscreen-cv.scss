@@ -38,26 +38,50 @@ body{
 
 
 .score{
-    width: 320px;
     gap: 32px;
-    opacity: 1;
     padding: 18px 20px;
     align-items: center;
     display: flex;
     justify-content: center;
     background-color: #86E9D633;
     margin-top: 32px;
+    height: 30px;
+    width: 280px;
 
 
     &__blue{
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 4px;
+        height: 100%;
+
+        & p{
+            font-family: "Red Rose", serif;
+            font-weight: 400;
+            font-size: 26px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            text-align: center;
+            color: #2BB1FF;
+        }
     }
 
     &__orange{
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 4px;
+        height: 100%;
+
+        & p{
+            font-family: "Red Rose", serif;
+            font-weight: 400;
+            font-size: 26px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            text-align: center;
+            color: #F58E39;
+        }
     }
 }

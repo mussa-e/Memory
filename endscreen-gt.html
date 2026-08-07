@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <link rel="icon" type="image/png" href="public/assets/stadia_controller_fav.svg">
+    
+    <title><TS-Memory>TS-Memory</title>
+</head>
+<body>
+    
+
+    <div class="game-over-gt" data-aos="fade-down" data-aos-delay="400">
+        GAME OVER
+    </div>
+
+    <div class="final-score-gt" data-aos="fade-up" data-aos-delay="1000">
+        Final score
+    </div>
+
+    <div class="score-gt" data-aos="fade-up" data-aos-delay="1200">
+
+        <div class="score-gt__orange">
+            <img src="public/assets/endscreen-gt/chess_pawn-orange.svg">
+            <p id="orange-score-gt"></p>
+        </div>
+        
+        <div class="score-gt__blue">
+            <img src="public/assets/endscreen-gt/chess_pawn-blue.svg">
+            <p id="blue-score-gt"></p>
+        </div>
+
+        
+    </div>
+
+
+
+    <script defer type="module" src="./src/ts/endscreen.ts"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            once: true
+        });
+
+        window.addEventListener('resize', () => {
+            AOS.refresh();
+        });
+    </script>
+</body>
+</html>
