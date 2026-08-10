@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <link rel="icon" type="image/png" href="public/assets/stadia_controller_fav.svg">
+
+    <title><TS-Memory>TS-Memory</title>
+</head>
+
+<body>
+    
+    <div class="header">
+        <img src="public/assets/win/confetti.svg">
+    </div>
+
+    <div class="winner">
+        The winner is
+    </div>
+
+    <div id="player" class="player">
+        <P id="player-color" class="player__color"></P>
+        <p class="player__suffix">Player</p>
+    </div>
+
+    <div class="pawn">
+        <img id="pawn" src="">
+    </div>
+
+    <div class="button">
+        <a href="settings.html">
+            <img src="public/assets/win/back-to-start.svg">
+        </a>
+    </div>
+
+
+
+
+
+
+
+    <!-- <script defer type="module" src="./src/ts/endscreen.ts"></script> -->
+    <script defer type="module" src="./src/ts/win.ts"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+    AOS.init({
+        duration: 1000,
+        easing: 'ease-out-cubic',
+        offset: 100,
+        once: true
+    });
+
+    window.addEventListener('resize', () => {
+        AOS.refresh();
+    });
+    </script>
+</body>
+
+</html>

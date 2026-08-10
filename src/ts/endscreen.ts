@@ -9,13 +9,20 @@ const score = JSON.parse(localStorage.getItem("score")!);
 const matchedPairsBlue = score.blue;
 const matchedPairsOrange = score.orange;
 
+const saved = localStorage.getItem("gameSettings");
+const settings = JSON.parse(saved!) as GameSettings;
+console.log(settings);
+
 
 initEnd();
 
 function initEnd(settings: GameSettings, matchedPairsBlue: number, matchedPairsOrange: number) {
     console.log("initEnd");
+    
 
     endscreenScoreUpdate();
+
+    whoIsWinner();
 }
 
 
@@ -41,4 +48,19 @@ function endscreenScoreUpdate(): void {
         orangeScoreGT.innerHTML = matchedPairsOrange.toString();
     }
 
+}
+
+
+function whoIsWinner(): void {
+    if(settings.theme==="code-vibes"){
+        setTimeout(() => {
+            window.location.href = "win-cv.html";
+        }, 5000);
+    }
+
+    if(settings.theme==="gaming-theme"){
+        setTimeout(() => {
+            window.location.href = "win-gt.html";
+        },5000);
+    }
 }
