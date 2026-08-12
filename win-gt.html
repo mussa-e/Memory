@@ -13,63 +13,58 @@
 
 <body>
     
-    <section id="win-section-cv" class="win-section-cv">
+    
+    <section id="win-section-gt" class="win-section">
 
-        <div class="header" data-aos="fade-down" data-aos-delay="400">
-            <img src="public/assets/win/confetti.svg">
-        </div>
-
-        <div class="winner" data-aos="fade-up" data-aos-delay="600">
+        <div class="winner" data-aos="fade-down" data-aos-delay="400">
             The winner is
         </div>
 
-        <div id="player" class="player" data-aos="fade-up" data-aos-delay="800">
-            <P id="player-color" class="player__color"></P>
+        <div id="player-gt" class="player" data-aos="fade-up" data-aos-delay="600">
+            <p id="player-color-gt" class="player__color"></p>
             <p class="player__suffix">Player</p>
         </div>
 
-        <div class="pawn" data-aos="fade-up" data-aos-delay="800">
-            <img id="pawn" src="">
+        <div class="cup" data-aos="fade-up" data-aos-delay="800">
+            <img src="public/assets/win/cup.svg">
         </div>
 
-        <div class="button">
+        <div class="button" data-aos="fade-up" data-aos-delay="1000">
             <a href="settings.html">
-                <img src="public/assets/win/back-to-start.svg">
+                <img src="public/assets/win/home-gt.svg">
             </a>
         </div>
 
     </section>
 
 
-
-
-    <section id="draw-section-cv" class="draw-section-cv">
-
-        <div class="itsa" data-aos="fade-down" data-aos-delay="400">
+    <section id="draw-section-gt" class="draw-section" data-aos="fade-up" data-aos-delay="400">
+        <div class="itsa">
             It’s a
         </div>
 
-        <div class="draw" data-aos="fade-down" data-aos-delay="600">
-            <img src="public/assets/win/draw-text.svg">
+        <div class="draw">
+            DRAW
         </div>
 
-        <div class="draw__scale" data-aos="fade-down" data-aos-delay="800">
-            <img src="public/assets/win/draw-cv.svg">
+        <div class="draw__scale">
+            <img src="public/assets/win/draw-gt.svg">
         </div>
 
         <div class="draw__button" data-aos="fade-up" data-aos-delay="1000">
             <a href="settings.html">
-                <img src="public/assets/win/back-to-start.svg">
+                <img src="public/assets/win/home-gt.svg">
             </a>
         </div>
-
     </section>
+
+
 
 
 
 
     
-    <script defer type="module" src="./src/ts/win-cv.ts"></script>
+    <script defer type="module" src="./src/ts/win-gt.ts"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
     AOS.init({

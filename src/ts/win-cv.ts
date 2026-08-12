@@ -3,7 +3,6 @@ import '../styles/pages/_game.scss';
 import '../styles/pages/_endscreen-cv.scss';
 import '../styles/pages/_endscreen-gt.scss';
 import '../styles/pages/_win-cv.scss';
-import '../styles/pages/_win-gt.scss';
 import { GameSettings } from "./selected-settings";
 
 
@@ -27,11 +26,13 @@ function initWin(): void {
 }
 
 
-function checkWinner() {
+function checkWinner(): void {
     if (matchedPairsBlue > matchedPairsOrange) {
         blueWins();
     } else if (matchedPairsOrange > matchedPairsBlue) {
         orangeWins();
+    } else if(matchedPairsBlue===matchedPairsOrange){
+        drawCV();
     }
 }
 
@@ -70,4 +71,19 @@ function orangeWins(): void {
     if (playerPawn){
         playerPawn.src = "public/assets/win/orange-pawn.svg";
     }
+}
+
+
+function drawCV(): void {
+    const winSec = document.getElementById("win-section-cv");
+    const drawSec = document.getElementById("draw-section-cv");
+
+    if(winSec){
+        winSec.style.display = "none";
+    }
+    
+    if(drawSec){
+        drawSec.style.display = "flex";
+    }
+    
 }

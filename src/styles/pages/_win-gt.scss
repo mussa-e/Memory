@@ -6,3 +6,85 @@
 
 
 
+body{
+    background-color: #294F60;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.win-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.winner{
+    font-family: Orbitron;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: 7%;
+    text-align: center;
+    color: #FFFFFF;
+
+}
+
+
+.player{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Orbitron;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: 7%;
+    text-align: center;
+    gap: 8px;
+    height: 80px;
+    
+}
+
+
+
+
+.draw-section{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.itsa{
+    font-family: Orbitron;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: 7%;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+
+.draw{
+    font-family: Orbitron;
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 100%;
+    letter-spacing: 7%;
+    text-align: center;
+    color: #ED1B76;
+
+
+    &__button{
+        margin-top: 24px;
+    }
+}
