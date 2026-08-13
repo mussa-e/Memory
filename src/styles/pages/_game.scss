@@ -28,7 +28,7 @@
 .match-marked-gt{
     border: 3px solid #ED1B76 !important;
     width: 105px !important;
-    height: 120px !important;
+    // height: 120px !important;
     border-radius: 14px;
 }
 
@@ -188,23 +188,17 @@
     position: fixed;
     top: 50%;
     left: 50%;
-
     width: 470px;
     padding: 40px;
     background: #fff;
-
-    // font-family: "Red Rose", serif;
     font-family: var(--popup-font);
     border-radius: var(--popup-radius);
-    
     font-weight: 700;
     font-size: 32px;
     line-height: 40px;
     text-align: center;
-
     transform: translate(-50%, -400%);
     transition: transform 0.5s ease;
-
     z-index: 1000;
 
     &.active {
@@ -221,7 +215,7 @@
 
     &__back-to-game{
         cursor: pointer;
-        // background-image: url("public/assets/code-vibes/back-to-game.svg");
+
         background-image: var(--back-to-game);
         width: 180px;
         background-size: contain;
@@ -229,14 +223,12 @@
         transition: all 0.2s ease-in-out;
 
         &:hover {
-        // background-image: url("public/assets/code-vibes/back-to-game-hover.svg");
         background-image: var(--back-to-game-hover);
         }
     }
 
     &__exit-game {
         cursor: pointer;
-        // background-image: url("public/assets/code-vibes/exit-popup.svg");
         background-image: var(--exit-game);
         width: 150px;
         background-size: contain;
@@ -309,7 +301,7 @@
 
         &--back{
             transform: rotateY(180deg);
-            
+            left: 8px;
         }
     }
 
@@ -318,3 +310,4 @@
     }
 
 }
+
