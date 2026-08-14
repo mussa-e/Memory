@@ -1,4 +1,4 @@
-export let cvCardsFilePath = [
+export let cvCardsFilePath: string[] = [
     "public/assets/code-vibes-cards/atom.svg",
     "public/assets/code-vibes-cards/angular.svg",
     "public/assets/code-vibes-cards/bash.svg",
@@ -20,7 +20,7 @@ export let cvCardsFilePath = [
 ];
 
 
-export let gtCardsFilePath = [
+export let gtCardsFilePath: string[] = [
     "public/assets/gaming-theme-cards/ace.svg",
     "public/assets/gaming-theme-cards/atari.svg",
     "public/assets/gaming-theme-cards/banana.svg",

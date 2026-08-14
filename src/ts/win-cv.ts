@@ -15,8 +15,6 @@ const matchedPairsOrange = score.orange;
 const savedSettings = localStorage.getItem("gameSettings");
 const settings = JSON.parse(savedSettings!) as GameSettings;
 
-console.log(settings);
-
 
 initWin();
 
@@ -55,6 +53,7 @@ function blueWins(): void {
     }
 }
 
+
 function orangeWins(): void {
     const playerDiv = document.getElementById("player");
     const playerColor = document.getElementById("player-color");
@@ -85,5 +84,4 @@ function drawCV(): void {
     if(drawSec){
         drawSec.style.display = "flex";
     }
-    
 }

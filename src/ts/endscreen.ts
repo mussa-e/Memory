@@ -1,27 +1,27 @@
-import '../styles/style.scss'
-import '../styles/pages/_game.scss'
-import '../styles/pages/_endscreen-cv.scss'
-import '../styles/pages/_endscreen-gt.scss'
+import '../styles/style.scss';
+import '../styles/pages/_game.scss';
+import '../styles/pages/_endscreen-cv.scss';
+import '../styles/pages/_endscreen-gt.scss';
 import { GameSettings } from "./selected-settings";
 
 
-const score = JSON.parse(localStorage.getItem("score")!);
-const matchedPairsBlue = score.blue;
-const matchedPairsOrange = score.orange;
+const score = JSON.parse(localStorage.getItem('score')!) as {
+    blue: number;
+    orange: number;
+};
+
+const matchedPairsBlue: number = score.blue;
+const matchedPairsOrange: number = score.orange;
 
 const saved = localStorage.getItem("gameSettings");
 const settings = JSON.parse(saved!) as GameSettings;
-console.log(settings);
 
 
 initEnd();
 
-function initEnd(settings: GameSettings, matchedPairsBlue: number, matchedPairsOrange: number) {
-    console.log("initEnd");
-    
 
+function initEnd(): void {
     endscreenScoreUpdate();
-
     whoIsWinner();
 }
 
@@ -47,7 +47,6 @@ function endscreenScoreUpdate(): void {
     if (orangeScoreGT) {
         orangeScoreGT.innerHTML = matchedPairsOrange.toString();
     }
-
 }
 
 

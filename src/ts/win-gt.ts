@@ -6,8 +6,6 @@ import '../styles/pages/_win-gt.scss';
 import { GameSettings } from "./selected-settings";
 
 
-
-
 const score = JSON.parse(localStorage.getItem("score")!);
 
 const matchedPairsBlue = score.blue;
@@ -16,8 +14,6 @@ const matchedPairsOrange = score.orange;
 
 const savedSettings = localStorage.getItem("gameSettings");
 const settings = JSON.parse(savedSettings!) as GameSettings;
-
-console.log(settings);
 
 
 initWinGT();
@@ -51,9 +47,8 @@ function blueWinsGT(): void {
     if (playerColor) {
         playerColor.textContent = "Blue";
     }
-
-    
 }
+
 
 function orangeWinsGT(): void {
     const playerDiv = document.getElementById("player-gt");
@@ -67,8 +62,6 @@ function orangeWinsGT(): void {
     if (playerColor) {
         playerColor.textContent = "Orange";
     }
-
-
 }
 
 
@@ -83,5 +76,4 @@ function drawGT(): void {
     if(drawSec){
         drawSec.style.display = "flex";
     }
-    
 }

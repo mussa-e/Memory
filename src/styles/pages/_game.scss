@@ -28,7 +28,6 @@
 .match-marked-gt{
     border: 3px solid #ED1B76 !important;
     width: 105px !important;
-    // height: 120px !important;
     border-radius: 14px;
 }
 
@@ -293,7 +292,10 @@
 
     &__face{
         position: absolute;
-        inset: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
         backface-visibility: hidden;
         display: flex;
         align-items: center;
@@ -301,7 +303,7 @@
 
         &--back{
             transform: rotateY(180deg);
-            left: 8px;
+            // left: 8px;
         }
     }
 

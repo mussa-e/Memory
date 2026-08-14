@@ -9,7 +9,9 @@ const saved = localStorage.getItem("gameSettings");
 const settings = JSON.parse(saved!) as GameSettings;
 console.log(settings);
 
-let currentPlayer: "blue" | "orange" = settings.player;
+let currentPlayer: "blue" | "orange" =
+    settings.player === "orange" ? "orange" : "blue";
+    
 let firstCard: HTMLButtonElement | null = null;
 let secondCard: HTMLButtonElement | null = null;
 let lockBoard: boolean = false;
@@ -18,9 +20,9 @@ export let matchedPairsOrange: number = 0;
 export let matchedPairsBlue: number = 0;
 
 
-
-
 init();
+setCardFaceBackforGT(settings.theme);
+
 
 function init(){
     const fieldRef = document.getElementById("field");
@@ -41,10 +43,21 @@ function init(){
     setPopupTheme(settings.theme);
     setCurrentPlayerImgBG(settings.theme, settings.player);
     setheaderLeftBG(settings.theme);
-
     updateCurrentPlayer();
-    
 }
+
+
+function setCardFaceBackforGT(theme: GameSettings["theme"]) {
+    if (theme === "gaming-theme") {
+        const cardBacks = document.querySelectorAll<HTMLElement>(".card__face--back");
+
+        cardBacks.forEach((cardBack) => {
+            cardBack.style.setProperty("left", "8px");
+        });
+    }
+}
+
+
 
 
 function checkIfGamingThemeForBG(theme: GameSettings["theme"]) {
@@ -88,38 +101,43 @@ function checkForMatch() {
     } else {
         unflipCards();
     }
-
 }
-
-
-
 
 
 function matchMark() {
     const ending = settings.theme === "code-vibes" ? "cv" : "gt";
 
-    const firstInner = firstCard?.firstElementChild as HTMLElement | null;
-    const secondInner = secondCard?.firstElementChild as HTMLElement | null;
+    const firstBack = firstCard?.querySelector(".card__face--back") as HTMLElement | null;
+    const secondBack = secondCard?.querySelector(".card__face--back") as HTMLElement | null;
 
-    firstInner?.classList.add(`match-marked-${ending}`);
-    secondInner?.classList.add(`match-marked-${ending}`);
+    firstBack?.classList.add(`match-marked-${ending}`);
+    secondBack?.classList.add(`match-marked-${ending}`);
 
+    if (settings.theme === "gaming-theme") {
+        firstBack?.style.setProperty("left", "5px");
+        firstBack?.style.setProperty("top", "-3px");
+        secondBack?.style.setProperty("left", "5px");
+        secondBack?.style.setProperty("top", "-3px");
+    }
     
-
+    if (settings.theme === "code-vibes") {
+        console.log("set 0px left for cv");
+        firstBack?.style.setProperty("left", "-5px");
+        firstBack?.style.setProperty("top", "-5px");
+        secondBack?.style.setProperty("left", "-5px");
+        secondBack?.style.setProperty("top", "-5px");
+    }
 }
 
 
 function disableCards() {
-
     firstCard = null;
     secondCard = null;
     lockBoard = false;
-
 }
 
 
 function unflipCards() {
-
     setTimeout(() => {
 
         firstCard?.classList.remove("is-flipped");
@@ -132,8 +150,8 @@ function unflipCards() {
         lockBoard = false;
 
     }, 1000);
-
 }
+
 
 function switchPlayer() {
 
@@ -155,8 +173,6 @@ function updateCurrentPlayer() {
         `public/assets/${settings.theme}/label-${currentPlayer}-${ending}.svg`;
 
     setCurrentPlayerImgBG(settings.theme, currentPlayer);
-
-    
 }
 
 
@@ -172,8 +188,8 @@ function initTheme(theme: GameSettings["theme"]){
         currentPlayerImg.src = `public/assets/${theme}/label-${settings.player}-${ending}.svg`;
     }
 
-    const exitBtn = document.getElementById("exit-btn") as HTMLButtonElement | null;
-    if(exitBtn){
+    const exitBtn = document.getElementById("exit-btn") as HTMLImageElement | null;
+    if (exitBtn) {
         exitBtn.src = `public/assets/${theme}/exit-${ending}.svg`;
     }
 
@@ -213,7 +229,6 @@ function updateScore() {
     }
 
     checkEnding();
-    
 }
 
 
@@ -224,8 +239,6 @@ function checkEnding(): void {
     if (totalPairs === requiredPairs) {
         checkFinalRedirect();
     }
-
-    
 }
 
 
@@ -254,12 +267,6 @@ function checkFinalRedirect(): void {
 }
 
 
-
-
-
-
-
-
 function initBoardSize(settings: GameSettings){
     const section = document.getElementById("field") as HTMLElement | null;
     const Cards = prepareGameCards(settings);
@@ -282,7 +289,6 @@ function initBoardSize(settings: GameSettings){
 }
 
 
-
 function prepareGameCards(settings: GameSettings) {
     const cardPool =
     settings.theme === "code-vibes"
@@ -303,8 +309,6 @@ function prepareGameCards(settings: GameSettings) {
     }
     return gameCards;
 }
-
-
 
 
 function setPopupTheme(theme: string) {
@@ -349,7 +353,6 @@ function setCurrentPlayerImgBG(theme: string, player: string) {
 
     background!.style.backgroundColor =
         player === "blue" ? "#1FAAFC" : "#F58E39";
-    
 }
 
 
@@ -367,14 +370,7 @@ function setheaderLeftBG(theme: string) {
     } else if(headerLeft && theme === "gaming-theme"){
         headerLeft.classList.remove("code-vibes-left-BG");
     }
-
 }
-
-
-
-
-
-        
 
 
 const exitBtn = document.getElementById("exit-btn") as HTMLButtonElement | null;
@@ -386,7 +382,6 @@ exitBtn?.addEventListener("click", () => {
     popup?.classList.add("active");
     overlay?.classList.add("overlay-add");
 });
-
 
 
 const backBtn = document.getElementById("back-btn");
