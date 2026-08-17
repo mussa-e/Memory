@@ -170,7 +170,7 @@ function updateCurrentPlayer() {
     const currentPlayerImg = document.getElementById("current-player") as HTMLImageElement;
 
     currentPlayerImg.src =
-        `public/assets/${settings.theme}/label-${currentPlayer}-${ending}.svg`;
+        `${import.meta.env.BASE_URL}assets/${settings.theme}/label-${currentPlayer}-${ending}.svg`;
 
     setCurrentPlayerImgBG(settings.theme, currentPlayer);
 }
@@ -185,12 +185,12 @@ function initTheme(theme: GameSettings["theme"]){
     const currentPlayerImg = document.getElementById("current-player") as HTMLImageElement | null;
     if(currentPlayerImg){
         
-        currentPlayerImg.src = `public/assets/${theme}/label-${settings.player}-${ending}.svg`;
+        currentPlayerImg.src = `${import.meta.env.BASE_URL}assets/${theme}/label-${settings.player}-${ending}.svg`;
     }
 
     const exitBtn = document.getElementById("exit-btn") as HTMLImageElement | null;
     if (exitBtn) {
-        exitBtn.src = `public/assets/${theme}/exit-${ending}.svg`;
+        exitBtn.src = `${import.meta.env.BASE_URL}assets/${theme}/exit-${ending}.svg`;
     }
 
     const headerFont = document.getElementById("header") as HTMLElement | null;
@@ -202,12 +202,12 @@ function initTheme(theme: GameSettings["theme"]){
 
     const playerBlueImg = document.getElementById("player-blue") as HTMLImageElement | null;
     if(playerBlueImg){
-        playerBlueImg.src = `public/assets/${theme}/blue-player-${ending}.svg`;
+        playerBlueImg.src = `${import.meta.env.BASE_URL}assets/${theme}/blue-player-${ending}.svg`;
     }
 
     const playerOrangeImg = document.getElementById("player-orange") as HTMLImageElement | null;
     if(playerOrangeImg){
-        playerOrangeImg.src = `public/assets/${theme}/orange-player-${ending}.svg`;
+        playerOrangeImg.src = `${import.meta.env.BASE_URL}assets/${theme}/orange-player-${ending}.svg`;
     }
 }
 
@@ -316,22 +316,22 @@ function setPopupTheme(theme: string) {
 
     root.style.setProperty(
         "--back-to-game",
-        `url("public/assets/${theme}/back-to-game.svg")`
+        `url("${import.meta.env.BASE_URL}assets/${theme}/back-to-game.svg")`
     );
 
     root.style.setProperty(
         "--back-to-game-hover",
-        `url("public/assets/${theme}/back-to-game-hover.svg")`
+        `url("${import.meta.env.BASE_URL}assets/${theme}/back-to-game-hover.svg")`
     );
 
     root.style.setProperty(
         "--exit-game",
-        `url("public/assets/${theme}/exit-popup.svg")`
+        `url("${import.meta.env.BASE_URL}assets/${theme}/exit-popup.svg")`
     );
 
     root.style.setProperty(
         "--exit-game-hover",
-        `url("public/assets/${theme}/exit-popup-hover.svg")`
+        `url("${import.meta.env.BASE_URL}assets/${theme}/exit-popup-hover.svg")`
     );
 
     if (theme === "code-vibes") {

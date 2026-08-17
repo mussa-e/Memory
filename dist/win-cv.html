@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <link rel="icon" type="image/png" href="/Memory-App/assets/stadia_controller_fav-CeHiEI4d.svg">
+
+    <title><TS-Memory>TS-Memory</title>
+  <script type="module" crossorigin src="/Memory-App/assets/winCv-BBiKQNom.js"></script>
+  <link rel="modulepreload" crossorigin href="/Memory-App/assets/modulepreload-polyfill-B-eOYwHK.js">
+  <link rel="modulepreload" crossorigin href="/Memory-App/assets/style-i5z7_zaN.js">
+  <link rel="modulepreload" crossorigin href="/Memory-App/assets/_game-mb0RyKAv.js">
+  <link rel="modulepreload" crossorigin href="/Memory-App/assets/_endscreen-gt-9rx0Yp12.js">
+  <link rel="stylesheet" crossorigin href="/Memory-App/assets/style-BvxeHr8P.css">
+  <link rel="stylesheet" crossorigin href="/Memory-App/assets/_game-C60Byh7I.css">
+  <link rel="stylesheet" crossorigin href="/Memory-App/assets/_endscreen-gt-BMy7aB76.css">
+  <link rel="stylesheet" crossorigin href="/Memory-App/assets/winCv-lorCQX1F.css">
+</head>
+
+<body>
+    
+    <section id="win-section-cv" class="win-section-cv">
+
+        <div class="header" data-aos="fade-down" data-aos-delay="400">
+            <img src="/Memory-App/assets/confetti-B9jFdy6F.svg">
+        </div>
+
+        <div class="winner" data-aos="fade-up" data-aos-delay="600">
+            The winner is
+        </div>
+
+        <div id="player" class="player" data-aos="fade-up" data-aos-delay="800">
+            <P id="player-color" class="player__color"></P>
+            <p class="player__suffix">Player</p>
+        </div>
+
+        <div class="pawn" data-aos="fade-up" data-aos-delay="800">
+            <img id="pawn" src="">
+        </div>
+
+        <div class="button">
+            <a href="settings.html">
+                <img src="/Memory-App/assets/back-to-start-sWPjLLSw.svg">
+            </a>
+        </div>
+
+    </section>
+
+
+
+
+    <section id="draw-section-cv" class="draw-section-cv">
+
+        <div class="itsa" data-aos="fade-down" data-aos-delay="400">
+            It’s a
+        </div>
+
+        <div class="draw" data-aos="fade-down" data-aos-delay="600">
+            <img src="/Memory-App/assets/draw-text-DN9o4lct.svg">
+        </div>
+
+        <div class="draw__scale" data-aos="fade-down" data-aos-delay="800">
+            <img src="/Memory-App/assets/draw-cv-BK2kVJT6.svg">
+        </div>
+
+        <div class="draw__button" data-aos="fade-up" data-aos-delay="1000">
+            <a href="settings.html">
+                <img src="/Memory-App/assets/back-to-start-sWPjLLSw.svg">
+            </a>
+        </div>
+
+    </section>
+
+
+
+
+    
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+    AOS.init({
+        duration: 1000,
+        easing: 'ease-out-cubic',
+        offset: 100,
+        once: true
+    });
+
+    window.addEventListener('resize', () => {
+        AOS.refresh();
+    });
+    </script>
+</body>
+
+</html>

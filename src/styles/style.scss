@@ -45,7 +45,7 @@ body{
     display: flex;
     position: absolute;
     left: 0;
-    top: 422px;
+    bottom: 8px;
     height: 300px;
     width: 415px;
 
@@ -55,7 +55,7 @@ body{
 .play-btn{
     width: 200px;
     height: 100px;
-    background-image: url("/public/assets/play-btn.svg");
+    background-image: url("/public/assets/start-settings/play-btn.svg");
     background-size: contain;
     background-repeat: no-repeat;
     transition: all 0.2s ease-in-out;
@@ -68,7 +68,7 @@ body{
 
     &:hover {
         cursor: pointer;
-        background-image: url("/public/assets/play-btn-hover.svg");
+        background-image: url("/public/assets/start-settings/play-btn-hover.svg");
         scale: 1.1;
     }
 }

@@ -49,7 +49,7 @@ function blueWins(): void {
     }
 
     if (playerPawn){
-        playerPawn.src = "public/assets/win/blue-pawn.svg";
+        playerPawn.src = `${import.meta.env.BASE_URL}assets/win/blue-pawn.svg`;
     }
 }
 
@@ -68,7 +68,7 @@ function orangeWins(): void {
     }
 
     if (playerPawn){
-        playerPawn.src = "public/assets/win/orange-pawn.svg";
+        playerPawn.src = `${import.meta.env.BASE_URL}assets/win/orange-pawn.svg`;
     }
 }
 

@@ -42,13 +42,13 @@ const updateSettingsInfo = (): void => {
     settings.boardSize > 0;
 
   startBtn.src = ready
-    ? "public/assets/start-btn.svg"
-    : "public/assets/start-btn-disabled.svg";
+    ? `${import.meta.env.BASE_URL}assets/start-settings/start-btn.svg`
+    : `${import.meta.env.BASE_URL}assets/start-settings/start-btn-disabled.svg`;
 
   skewLines.forEach((line) => {
     line.src = ready
-      ? "public/assets/line-skew-picked.svg"
-      : "public/assets/line-skew.svg";
+      ? `${import.meta.env.BASE_URL}assets/start-settings/line-skew-picked.svg`
+      : `${import.meta.env.BASE_URL}assets/start-settings/line-skew.svg`;
   });
 
   startBtnHover(ready);
@@ -59,13 +59,13 @@ function startBtnHover(ready: boolean): void {
   if (!ready) return;
 
   startBtn.onmouseenter = () => {
-    startBtn.src = "public/assets/start-btn-hover.svg";
+    startBtn.src = `${import.meta.env.BASE_URL}assets/start-settings/start-btn-hover.svg`;
     startBtn.style.transform = "scale(1.2)";
   };
 
 
   startBtn.onmouseleave = () => {
-    startBtn.src = "public/assets/start-btn.svg";
+    startBtn.src = `${import.meta.env.BASE_URL}assets/start-settings/start-btn.svg`;
     startBtn.style.transform = "scale(1)";
   };
 
@@ -170,8 +170,8 @@ const updateThemeImage = (option: HTMLElement): void => {
   if (!themeImg) return;
 
   themeImg.src = option.classList.contains("code-vibes")
-    ? "public/assets/code-vibes-theme.svg"
-    : "public/assets/gaming-theme.svg";
+    ? `${import.meta.env.BASE_URL}assets/start-settings/code-vibes-theme.svg`
+    : `${import.meta.env.BASE_URL}assets/start-settings/gaming-theme.svg`;
 };
 
 
@@ -183,14 +183,14 @@ const resetGroup = (option: HTMLElement): void => {
 
 
 const resetOption = (option: HTMLElement): void => {
-  option.querySelector("img")!.src = "public/assets/circle.svg";
+  option.querySelector("img")!.src = `${import.meta.env.BASE_URL}assets/start-settings/circle.svg`;
   option.querySelector("p")!.style.fontWeight = "400";
   option.querySelector<HTMLElement>(".line-short")!.style.display = "none";
 };
 
 
 const activateOption = (option: HTMLElement): void => {
-  option.querySelector("img")!.src = "public/assets/circle-dot.svg";
+  option.querySelector("img")!.src = `${import.meta.env.BASE_URL}assets/start-settings/circle-dot.svg`;
   option.querySelector("p")!.style.fontWeight = "900";
   option.querySelector<HTMLElement>(".line-short")!.style.display = "flex";
 };
