@@ -150,15 +150,15 @@ main{
 
 
     &__theme{
-
+        width: 128px;
     }
 
     &__player{
-
+        width: 125px;
     }
 
     &__board{
-
+        width: 136px;
     }
 
     &__start-btn{
@@ -168,7 +168,8 @@ main{
     }
 
     &__skew{
-        
+        width: 40px;
+        height: 60px;
     }
 
 }
