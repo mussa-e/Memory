@@ -3,10 +3,18 @@
 body{
     background-color: #fff;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main{
+    width: 100vw;
+    max-width: 1920px;
+    height: 100vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

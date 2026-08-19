@@ -15,6 +15,14 @@ body{
 }
 
 
+.main-index{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1920px;
+}
+
 
 
 .intro{
