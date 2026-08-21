@@ -11,7 +11,7 @@
 <body id="game-body">
 
     <header id="header" class="header">
-        <section id="header-left" class="header__left">
+        <div id="header-left" class="header__left">
             <div class="header__left-blue">
                 <img id="player-blue" src="">
                 <p id="score-blue">0</p>
@@ -20,22 +20,22 @@
                 <img id="player-orange" src="">
                 <p id="score-orange">0</p>
             </div>
-        </section>
+        </div>
 
-        <section class="header__mid">
+        <div class="header__mid">
             <p>Current Player:</p>
             <div id="current-player-wrapper" class="header__mid-current-player">
                 <img id="current-player" src="">
             </div>
-        </section>
+        </div>
 
-        <section class="header__right">
-            <img id="exit-btn" src="">
-        </section>
+        
+        <img class="header__right" id="exit-btn" src="">
         
     </header>
 
-    <aside class="overlay" id="overlay">
+    
+    <div class="overlay" id="overlay">
         <div class="popup" id="popup">
             <p>Are you sure you want to quit the game?</p>
             <div class="popup__btns">
@@ -43,7 +43,7 @@
                 <div id="exit-popup" class="popup__exit-game"></div>
             </div>
         </div>
-    </aside>
+    </div>
     
         
 

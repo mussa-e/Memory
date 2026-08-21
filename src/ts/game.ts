@@ -7,7 +7,6 @@ import { buttonCardHTML } from './template';
 
 const saved = localStorage.getItem("gameSettings");
 const settings = JSON.parse(saved!) as GameSettings;
-console.log(settings);
 
 let currentPlayer: "blue" | "orange" =
     settings.player === "orange" ? "orange" : "blue";
@@ -26,6 +25,7 @@ setCardFaceBackforGT(settings.theme);
 
 function init(){
     const fieldRef = document.getElementById("field");
+
     if(fieldRef){
         fieldRef.addEventListener("click", e=> {
             const card = (e.target as HTMLElement).closest(".card") as HTMLButtonElement
@@ -44,6 +44,7 @@ function init(){
     setCurrentPlayerImgBG(settings.theme, settings.player);
     setheaderLeftBG(settings.theme);
     updateCurrentPlayer();
+    checkIfGamingThemeForGap(settings.theme);
 }
 
 
@@ -63,8 +64,21 @@ function setCardFaceBackforGT(theme: GameSettings["theme"]) {
 function checkIfGamingThemeForBG(theme: GameSettings["theme"]) {
 
     let contRef = document.querySelectorAll(".card__face--back");
+
     if (theme === "gaming-theme") {
         contRef.forEach(card => card.classList.add("gt-card-inner"));
+    }
+}
+
+
+function checkIfGamingThemeForGap(theme: GameSettings["theme"]) {
+
+    let contRefField = document.getElementById("field");
+
+    console.log("field:", contRefField);
+
+    if (theme === "gaming-theme") {
+        contRefField?.classList.add("gap-for-game-themes");
     }
 }
 
